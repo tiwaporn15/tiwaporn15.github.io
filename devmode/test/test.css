@@ -1,0 +1,89 @@
+/* รูปแบบสำหรับหน้าจอขนาดเล็ก */
+@media (max-width: 768px) {
+    .container-fluid {
+      width: 100%;
+    }
+    .column {
+      width: 100%;
+    }
+  }
+  
+  /* รูปแบบสำหรับหน้าจอขนาดกลาง */
+  @media (min-width: 769px) and (max-width: 992px) {
+    .container-fluid {
+      width: 90%;
+    }
+    .column {
+      width: 50%;
+    }
+  }
+  
+  /* รูปแบบสำหรับหน้าจอขนาดใหญ่ */
+  @media (min-width: 993px) {
+    .container-fluid {
+      width: 80%;
+    }
+    .column {
+      width: 33.33%;
+    }
+  } 
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
+    width: 100%;    
+}
+
+.carouselclass {
+    padding-top: 8vh;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover; /* ให้ภาพเต็มกรอบ แต่ไม่ถูกตัด */
+  }  
+
+.main {
+    padding-top: 15vh;
+    padding-bottom: 5vh;
+}
+  
+.progress {
+    margin-left: 0px;
+    margin-bottom: 5px;
+    width: 40vh;
+}
+
+.toon, .non, .deen, .bell, .parn {
+    display: flex;
+    padding-left: 20px;
+}
+
+.col-md-3 img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+h5 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #010101;
+    color: #fff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+footer p {
+    font-size: 16px;
+    padding-top: 20px;
+    text-align: center;
+}
+.card-text {
+  white-space: pre-line;
+}
+
