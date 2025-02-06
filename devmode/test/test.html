@@ -9,44 +9,45 @@
     <link rel="stylesheet" href="test.css">
   </head>
   <body>
-    <nav id="navbar-example2" class="navbar navbar-expand-lg bg-light fixed-top px-3 py-3">
-      <a class="navbar-brand" href="#"><img src="/devmode/test/img/magic-wand.png" alt="Bootstrap" width="30" height="30"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Audio Player -->
-      <audio id="audioPlayer" preload="auto" controls>
-        <source id="audioSource" src="/devmode/test/Teletubbies say Ehoh  HD Music Video Videos For Kids.mp3" type="audio/mp3">
-      </audio>
-
-      </button>
-      <button id="nextTrackBtn"> Next Track</button> <!-- ปุ่ม Next -->
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav  ms-auto fs-5">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>  
-          </li>            
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="true" href="#" role="button" aria-expanded="false">
-              About us
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#scrollspyHeading1">Toon</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading2">Non</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading3">Deen</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading4">Bell</a></li>
-              <li><a class="dropdown-item" href="#scrollspyHeading5">Parn</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div> 
-    </nav>
     <div class="container-fluid">
+      <nav id="navbar-example2" class="navbar navbar-expand-lg bg-light fixed-top px-3 py-3">
+        <a class="navbar-brand" href="#"><img src="/devmode/test/img/magic-wand.png" alt="Bootstrap" width="30" height="30"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Audio Player -->
+        <audio id="audioPlayer" preload="auto" controls>
+          <source id="audioSource" src="/devmode/test/Teletubbies say Ehoh  HD Music Video Videos For Kids.mp3" type="audio/mp3">
+        </audio>
+
+        </button>
+        <button id="nextTrackBtn"> Next Track</button> <!-- ปุ่ม Next -->
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav  ms-auto fs-5">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>  
+            </li>            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="true" href="#" role="button" aria-expanded="false">
+                About us
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#scrollspyHeading1">Toon</a></li>
+                <li><a class="dropdown-item" href="#scrollspyHeading2">Non</a></li>
+                <li><a class="dropdown-item" href="#scrollspyHeading3">Deen</a></li>
+                <li><a class="dropdown-item" href="#scrollspyHeading4">Bell</a></li>
+                <li><a class="dropdown-item" href="#scrollspyHeading5">Parn</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div> 
+      </nav>
+    
       
       <section class="header">
         <div class="carouselclass">
@@ -87,8 +88,8 @@
         </div>
         <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
           <div class="main">
-            <div id="scrollspyHeading1" class="toon">
-              <div class="card mb-3" style="max-width: auto;">
+            <div id="scrollspyHeading1" class="toon row">
+              <div class="card mb-3 shadow col-12 col-md-6 col-lg-4"" style="max-width: auto;">
                 <div class="row g-0">
                   <div class="col-md-3">
                     <img src="/devmode/test/img/IMG_4748.PNG" class="img-fluid rounded-start" alt="...">
@@ -105,8 +106,8 @@
                   </div>
                 </div>
               </div>
-                <div class="col-md-auto"> 
-                  <div class="card mx-4 mb-3" style="max-width: auto;">
+                <div class="col-12 col-md-6 col-lg-4""> 
+                  <div class="card mx-4 mb-3 shadow" style="max-width: auto;">
                     <div class="card-body mx-auto">
                       <p>Skill</p>
                       <p>Sky</p>
@@ -125,8 +126,8 @@
                   </div>
                 </div>
             </div>
-            <div id="scrollspyHeading2"  class="non">
-              <div class="card mb-3" style="max-width: auto;">
+            <div id="scrollspyHeading2"  class="non row">
+              <div class="card mb-3 shadow col-12 col-md-6 col-lg-4"" style="max-width: auto;">
                 <div class="row g-0">
                   <div class="col-md-3">
                     <img src="/devmode/test/img/IMG_4747.PNG" class="img-fluid rounded-start" alt="...">
@@ -143,8 +144,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-auto">
-                <div class="card mx-4 mb-3" style="max-width: auto;">
+              <div class=" col-12 col-md-6 col-lg-4"">
+                <div class="card mx-4 mb-3 shadow" style="max-width: auto;">
                   <div class="card-body mx-auto">
                     <p>Skill</p>
                     <p>Sky</p>
@@ -163,15 +164,15 @@
                 </div>
               </div>
             </div>
-            <div id="scrollspyHeading3" class="deen">
-              <div class="card mb-3" style="max-width: auto;">
+            <div id="scrollspyHeading3" class="deen row">
+              <div class="card mb-3 shadow col-12 col-md-6 col-lg-4"" style="max-width: auto;">
                 <div class="row g-0">
                   <div class="col-md-3">
                     <img src="/devmode/test/img/IMG_4745.PNG" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-9">
                     <div class="card-body mx-auto">
-                      <h5 class="card-title">Ruddeen</h5>
+                      <h5 class="card-title">Ruddeeneiei</h5>
                       <p class="card-text"><small class="text-body-secondary">66010399</small></p>
                       <p class="card-text"><small class="text-body-secondary">Name : Noppharuj Jitthawil
                         Date of Birth : 24/07/2005
@@ -181,8 +182,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-auto">
-                <div class="card mx-4 mb-3" style="max-width: auto;">
+              <div class="col-12 col-md-6 col-lg-4"">
+                <div class="card mx-4 mb-3 shadow" style="max-width: auto;">
                   <div class="card-body mx-auto">
                     <p>Skill</p>
                     <p>Sky</p>
@@ -201,15 +202,15 @@
                 </div>
               </div>
             </div>
-            <div id="scrollspyHeading4" class="bell">
-              <div class="card mb-3" style="max-width: auto;">
+            <div id="scrollspyHeading4" class="bell row">
+              <div class="card mb-3 shadow col-12 col-md-6 col-lg-4"" style="max-width: auto;">
                 <div class="row g-0">
                   <div class="col-md-3">
                     <img src="/devmode/test/img/IMG_4746.PNG" class="img-fluid rounded-start" alt="...">
                   </div>
                   <div class="col-md-9">
                     <div class="card-body mx-auto">
-                      <h5 class="card-title">Belle</h5>
+                      <h5 class="card-title">Belley</h5>
                       <p class="card-text"><small class="text-body-secondary">66010439</small></p>
                       <p class="card-text"><small class="text-body-secondary">Name : Boonnisa Samlee
                         Date of Birth : 25/01/2005
@@ -219,8 +220,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-auto">
-                <div class="card mx-4 mb-3" style="max-width: auto;">
+              <div class="col-12 col-md-6 col-lg-4"">
+                <div class="card mx-4 mb-3 shadow" style="max-width: auto;">
                   <div class="card-body mx-auto">
                     <p>Skill</p>
                     <p>Sky</p>
@@ -239,8 +240,8 @@
                 </div>
               </div>
             </div>
-            <div id="scrollspyHeading5" class="parn">
-              <div class="card mb-3" style="max-width: auto;">
+            <div id="scrollspyHeading5" class="parn row">
+              <div class="card mb-3 shadow col-12 col-md-6 col-lg-4"" style="max-width: auto;">
                 <div class="row g-0">
                   <div class="col-md-3">
                     <img src="/devmode/test/img/IMG_4744.PNG" class="img-fluid rounded-start" alt="...">
@@ -257,8 +258,8 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-auto">
-                <div class="card mx-4 mb-3" style="max-width: auto;">
+              <div class="col-12 col-md-6 col-lg-4"">
+                <div class="card mx-4 mb-3 shadow" style="max-width: auto;">
                   <div class="card-body mx-auto">
                     <p>Skill</p>
                     <p>Sky</p>
