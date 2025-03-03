@@ -169,52 +169,5 @@ window.addEventListener("scroll", function() {
 scrollTopBtn.addEventListener("click", function() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
-function createSnowflake() {
-  const snowflake = document.createElement("img"); // ใช้ <img> แทน emoji ❄️
-  snowflake.classList.add("snowflake");
-
-  // กำหนดรายการภาพที่ต้องการสุ่ม
-  const images = [
-      "img/tooptp.png",
-      "img/parntp.png",
-      "img/nontp.png",
-      "img/belltp.png",
-      "img/deentp.png"
-  ];
-  
-  // เลือกภาพแบบสุ่ม
-  const randomImage = images[Math.floor(Math.random() * images.length)];
-  snowflake.src = randomImage;
-  
-  document.body.appendChild(snowflake);
-
-  // กำหนดขนาดและตำแหน่งแบบสุ่ม
-  const size = Math.random() * 30 + 10 + "px"; // ขนาดสุ่มระหว่าง 10px - 40px
-  const left = Math.random() * 100 + "vw"; // ตกจากตำแหน่งสุ่ม
-  const duration = Math.random() * 3 + 2 + "s"; // เวลาตกสุ่ม
-
-  snowflake.style.width = size;
-  snowflake.style.height = size;
-  snowflake.style.position = "fixed";
-  snowflake.style.zIndex = "999"; // ให้อยู่ด้านหน้าสุด
-  snowflake.style.left = left;
-  snowflake.style.top = "-10px";
-  snowflake.style.animation = `fall ${duration} linear`;
-
-  setTimeout(() => {
-      snowflake.remove();
-  }, 5000);
-}
-
-setInterval(createSnowflake, 300);
-
-const loadingBar = document.getElementById("loading-bar");
-
-window.addEventListener("load", () => {
-    loadingBar.style.width = "100%";
-    setTimeout(() => {
-        loadingBar.style.display = "none";
-    }, 500);
-});
 
 
