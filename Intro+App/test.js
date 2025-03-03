@@ -41,7 +41,7 @@ playPauseBtn.addEventListener("click", function() {
     }
 });
 
-// ฟังก์ชันเปลี่ยนเพลง (Next Track)
+// ฟังก์ชันเปลี่ยนเพลง (Next Track)A
 nextTrackBtn.addEventListener("click", function() {
     currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
     audioSource.src = tracks[currentTrackIndex];
@@ -55,11 +55,10 @@ nextTrackBtn.addEventListener("click", function() {
 
 // คำคมที่มีให้เลือก
 const quotes = [
-  "จงเป็นตัวเองในเวอร์ชันที่ดีที่สุด",
-  "ความพยายามไม่เคยทรยศใคร",
-  "ทุกวันคือโอกาสใหม่",
-  "ความล้มเหลวคือบทเรียนที่สำคัญ",
-  "ลงมือทำดีกว่าคิดเฉย ๆ"
+  "เห็นคุณลองทำสิ่งใหม่ ๆ แล้วรู้สึกอบอุ่นใจมาก ขอให้ก้าวต่อไปอย่างมั่นใจนะ!",
+  "ความเฉย ๆ ไม่ใช่เรื่องแย่ แค่เป็นอีกมุมหนึ่งของการเรียนรู้",
+  "ไม่เป็นไรนะ แค่คุณกล้าลองก็วิเศษมากแล้ว!",
+  "ไม่มีอะไรสายเกินไป ถ้าวันหนึ่งคุณอยากลอง คุณยังมีโอกาสเสมอ 😊"
 ];
 
 // ภารกิจที่มีให้เลือก
@@ -143,3 +142,79 @@ document.getElementById("shareQuoteBtn").addEventListener("click", function() {
 
   window.open(facebookURL, "_blank", shareOptions);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const popup = document.getElementById("download-popup");
+  const closeBtn = document.getElementById("close-popup");
+
+  closeBtn.addEventListener("click", function () {
+      popup.style.display = "none";
+  });
+
+  // แสดง popup หลังจากโหลดหน้าเว็บ 3 วินาที
+  setTimeout(() => {
+      popup.style.display = "flex";
+  }, 3000);
+});
+const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+window.addEventListener("scroll", function() {
+    if (window.scrollY > 300) {
+        scrollTopBtn.style.display = "block";
+    } else {
+        scrollTopBtn.style.display = "none";
+    }
+});
+
+scrollTopBtn.addEventListener("click", function() {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+});
+function createSnowflake() {
+  const snowflake = document.createElement("img"); // ใช้ <img> แทน emoji ❄️
+  snowflake.classList.add("snowflake");
+
+  // กำหนดรายการภาพที่ต้องการสุ่ม
+  const images = [
+      "img/tooptp.png",
+      "img/parntp.png",
+      "img/nontp.png",
+      "img/belltp.png",
+      "img/deentp.png"
+  ];
+  
+  // เลือกภาพแบบสุ่ม
+  const randomImage = images[Math.floor(Math.random() * images.length)];
+  snowflake.src = randomImage;
+  
+  document.body.appendChild(snowflake);
+
+  // กำหนดขนาดและตำแหน่งแบบสุ่ม
+  const size = Math.random() * 30 + 10 + "px"; // ขนาดสุ่มระหว่าง 10px - 40px
+  const left = Math.random() * 100 + "vw"; // ตกจากตำแหน่งสุ่ม
+  const duration = Math.random() * 3 + 2 + "s"; // เวลาตกสุ่ม
+
+  snowflake.style.width = size;
+  snowflake.style.height = size;
+  snowflake.style.position = "fixed";
+  snowflake.style.zIndex = "999"; // ให้อยู่ด้านหน้าสุด
+  snowflake.style.left = left;
+  snowflake.style.top = "-10px";
+  snowflake.style.animation = `fall ${duration} linear`;
+
+  setTimeout(() => {
+      snowflake.remove();
+  }, 5000);
+}
+
+setInterval(createSnowflake, 300);
+
+const loadingBar = document.getElementById("loading-bar");
+
+window.addEventListener("load", () => {
+    loadingBar.style.width = "100%";
+    setTimeout(() => {
+        loadingBar.style.display = "none";
+    }, 500);
+});
+
+
