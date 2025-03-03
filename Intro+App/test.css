@@ -13,30 +13,110 @@
 
 /* รูปแบบสำหรับหน้าจอขนาดใหญ่ */
 @media (min-width: 993px) {
-    .container-fluid { width: 80%; }
-    .column { width: 33.33%; }
-    .carousel-item img {
-        width: 100%;
-        height: 600px;
-        object-fit: cover;
-    }
+  .container-fluid { width: 80%; }
+  .column { width: 33.33%; }
+  .carousel-item img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+  }
 }
 
-  /* ปรับแต่ง Navbar บนมือถือ */
-@media  (min-width: 601px) and (max-width: 991px) {
+/* รูปแบบสำหรับหน้าจอขนาดกลาง (แท็บเล็ต) */
+@media (min-width: 601px) and (max-width: 992px) {
+  .container-fluid { width: 90%; }
+  .column { width: 50%; }
+  .carousel-item img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+  }
   .navbar-nav {
-    font-family: "Paytone One", sans-serif;
-      text-align: center; /* จัดให้อยู่ตรงกลาง */
+      font-family: "Paytone One", sans-serif;
+      text-align: center;
   }
-
   .navbar-nav .nav-link {
-    font-family: "Paytone One", sans-serif;
       display: block;
-      padding: 12px; /* เพิ่มพื้นที่ให้เมนูใหญ่ขึ้น */
+      padding: 12px;
   }
-
   .dropdown-menu {
       text-align: center;
+  }
+}
+
+/* รูปแบบสำหรับหน้าจอขนาดเล็ก (มือถือ) */
+@media (max-width: 600px) {
+  body {
+    max-width: 100%;
+    height: 100vh;
+  }
+
+  .container-fluid { 
+    width: 100%; 
+
+  }
+  .column { width: 100%; }
+  .carousel-item img {
+      width: 50%;
+      height: auto;
+      object-fit: contain;
+  }
+  .navbar-nav {
+      font-family: "Paytone One", sans-serif;
+      text-align: center;
+  }
+  .navbar-nav .nav-link {
+      display: block;
+      padding: 12px;
+  }
+  .dropdown-menu {
+      text-align: center;
+  }
+  .audio-wrapper {
+      flex-direction: column;
+      gap: 8px;
+  }
+  #currentTrackName {
+      font-size: 14px;
+      text-align: center;
+      padding: 5px 0;
+  }
+  .feature-item img {
+      max-width: 80%;
+      height: auto;
+  }
+  .btn-custom-download {
+      display: block;
+      margin: 20px auto;
+      width: 80%;
+      text-align: center;
+  }
+  .app-title, .app-description {
+      text-align: center;
+  }
+  .feature-img {
+      max-width: 60%;
+      height: auto;
+      margin: 0 auto;
+  }
+  .feature-text {
+      text-align: center;
+  }
+  .feature-list li {
+      text-align: center;
+  }
+  .hero-container {
+      max-width: 90%;
+  }
+  .hero-image {
+      border-radius: 20px;
+  }
+  .card {
+      margin-bottom: 20px;
+  }
+  footer {
+      text-align: center;
+      font-size: 14px;
   }
 }
 
@@ -1025,4 +1105,103 @@ p {
 .accordion-button {
   transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
 }
+
+.download-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* เปลี่ยนจาก right เป็น left */
+  background: #ffc2c2;
+  color: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 380px;
+  min-height: 120px;
+  transition: all 0.3s ease-in-out;
+  flex-wrap: wrap;
+}
+.popup-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.popup-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.popup-title {
+  font-family: "Noto Sans Thai Looped", sans-serif; /* เปลี่ยนฟอนต์ */
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.popup-text {
+  font-family: "Noto Sans Thai Looped", sans-serif; /* เปลี่ยนฟอนต์ */
+  font-size: 14px;
+  color: white;
+}
+
+/* ปรับปุ่มปิดให้ไปอยู่มุมซ้ายบนแทน */
+.download-popup button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px; /* สามารถคงไว้ที่ขวา หรือเปลี่ยนเป็น left: 10px; ถ้าอยากให้ไปทางซ้าย */
+}
+
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: none;
+  color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  transition: all 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background: #FF4196;
+  transform: scale(1.1);
+}
+.snowflake {
+  position: fixed;
+  top: -10px;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  to {
+      transform: translateY(100vh);
+  }
+}
+#loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: linear-gradient(to right, #ff69b4, #ff1493);
+  z-index: 9999;
+  transition: width 0.3s ease-in-out;
+}
+
+
+
 
