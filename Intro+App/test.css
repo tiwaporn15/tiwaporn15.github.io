@@ -1180,17 +1180,7 @@ p {
   background: #FF4196;
   transform: scale(1.1);
 }
-.snowflake {
-  position: fixed;
-  top: -10px;
-  opacity: 0.8;
-}
 
-@keyframes fall {
-  to {
-      transform: translateY(100vh);
-  }
-}
 #loading-bar {
   position: fixed;
   top: 0;
