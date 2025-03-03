@@ -1,0 +1,1223 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Thai+Looped:wght@100;200;300;400;500;600;700;800;900&family=Paytone+One&display=swap');
+
+/* ==========================
+   Global Styles
+   ========================== */
+   body {
+    background-color: #FFF7F5;
+}
+
+/* ==========================
+   Responsive Design
+   ========================== */
+
+/* รูปแบบสำหรับหน้าจอขนาดใหญ่ */
+@media (min-width: 993px) {
+  .container-fluid { width: 80%; }
+  .column { width: 33.33%; }
+  .carousel-item img {
+      width: 100%;
+      height: 600px;
+      object-fit: cover;
+  }
+}
+
+/* รูปแบบสำหรับหน้าจอขนาดกลาง (แท็บเล็ต) */
+@media (min-width: 601px) and (max-width: 992px) {
+  .container-fluid { width: 90%; }
+  .column { width: 50%; }
+  .carousel-item img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+  }
+  .navbar-nav {
+      font-family: "Paytone One", sans-serif;
+      text-align: center;
+  }
+  .navbar-nav .nav-link {
+      display: block;
+      padding: 12px;
+  }
+  .dropdown-menu {
+      text-align: center;
+  }
+}
+
+/* รูปแบบสำหรับหน้าจอขนาดเล็ก (มือถือ) */
+@media (max-width: 600px) {
+  body {
+    max-width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .container-fluid { 
+    width: 100%; 
+
+  }
+  .column { width: 100%; }
+  .carousel-item img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+  }
+  .navbar-nav {
+      font-family: "Paytone One", sans-serif;
+      text-align: center;
+  }
+  .navbar-nav .nav-link {
+      display: block;
+      padding: 12px;
+  }
+  .dropdown-menu {
+      text-align: center;
+  }
+  .audio-wrapper {
+      flex-direction: column;
+      gap: 8px;
+  }
+  #currentTrackName {
+      font-size: 14px;
+      text-align: center;
+      padding: 5px 0;
+  }
+  .feature-item img {
+      max-width: 80%;
+      height: auto;
+  }
+  .btn-custom-download {
+      display: block;
+      margin: 20px auto;
+      width: 80%;
+      text-align: center;
+  }
+  .app-title, .app-description {
+      text-align: center;
+  }
+  .feature-img {
+      max-width: 60%;
+      height: auto;
+      margin: 0 auto;
+  }
+  .feature-text {
+      text-align: center;
+  }
+  .feature-list li {
+      text-align: center;
+  }
+  .hero-container {
+      max-width: 90%;
+  }
+  .hero-image {
+      border-radius: 20px;
+  }
+  .card {
+      margin-bottom: 20px;
+  }
+  footer {
+      text-align: center;
+      font-size: 14px;
+  }
+}
+
+/* ==========================
+   Navbar
+   ========================== */
+
+.navbar {
+  background-color: #FFB3D3 !important; /* เปลี่ยนสีพื้นหลัง */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+  font-family: "Paytone One", sans-serif !important; /* เปลี่ยนฟอนต์ */
+  padding: 12px 20px; /* เพิ่ม padding เพื่อให้ Navbar ดูสมดุล */
+  transition: background-color 0.3s ease-in-out;
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 179, 211, 0.9) !important; /* สีชมพูอ่อนเมื่อเลื่อน */
+  backdrop-filter: blur(10px); /* เอฟเฟกต์เบลอ */
+}
+
+.navbar-brand img {
+  width: 50px; /* ปรับขนาดโลโก้ */
+  height: 50px;
+}
+
+/* สไตล์ของเมนู Navbar */
+.navbar-nav .nav-link {
+  font-family: "Paytone One", sans-serif;
+  color: white !important; /* เปลี่ยนสีของลิงก์เมนู */
+  font-weight: 500; /* ทำให้ตัวหนังสือหนาขึ้น */
+  padding: 10px 15px; /* เพิ่มระยะห่างให้ดูอ่านง่าย */
+  transition: color 0.3s ease-in-out, background 0.3s ease-in-out; /* เพิ่มเอฟเฟกต์เวลาโฮเวอร์ */
+  border-radius: 8px; /* ทำให้ขอบมน */
+}
+
+/* ปุ่ม Toggle (สำหรับมือถือ) */
+.navbar-toggler {
+  border: none !important; /* เอาขอบออก */
+  outline: none !important;
+  margin-left: auto; /*ดันปุ่มไปด้านขวา*/
+
+}
+
+/* เมนู Dropdown */
+.dropdown-menu {
+  background-color: #FF4196 !important; /* เปลี่ยนสีของเมนูดรอปดาวน์ */
+  border-radius: 10px; /* ทำให้มีขอบมน */
+  border: none; /* เอาเส้นขอบออก */
+}
+
+.dropdown-item {
+  font-family: "Paytone One", sans-serif;
+  color: #ffffff !important; /* เปลี่ยนสีตัวหนังสือ */
+  transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.dropdown-item:hover {
+  background-color: #EF0074 !important; /* เปลี่ยนสีเมื่อโฮเวอร์ */
+  color: black !important;
+  transform: scale(0.95); /* ย่อขนาดเล็กน้อยเมื่อกด */
+
+}
+
+/* ทำให้ Navbar ติดอยู่ด้านบน */
+.fixed-top {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.container-fluid {
+  margin: 0;
+  padding: 0;
+  width: 100%;    
+}
+
+/* ==========================
+   Carousel
+   ========================== */
+
+.carouselclass {
+    padding-top: 8vh;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover; /* ให้ภาพเต็มกรอบ แต่ไม่ถูกตัด */
+}  
+
+/* ==========================
+   Main Content
+   ========================== */
+
+.main {
+    padding-top: 15vh;
+    padding-bottom: 5vh;
+}
+
+/* ==========================
+   Progress Bars
+   ========================== */
+
+.progress {
+  width: 100%; /* ให้ progress bar ขยายเต็มพื้นที่ */
+  height: 20px; /* ปรับความสูงเพื่อให้ดูดีขึ้น */
+}
+
+.progress-bar {
+  font-family: "Paytone One", sans-serif;
+  font-size: 14px;
+  text-align: center;
+  line-height: 20px;
+}
+
+.progress-bar-sky {
+  background-color: #FFD780 !important; 
+}
+.progress-bar-sea {
+  background-color: #FF9D64 !important; 
+}
+.progress-bar-flower {
+  background-color: #FF4F30 !important;
+}
+
+/* ==========================
+   Rows
+   ========================== */
+
+.row {
+  display: flex;
+  align-items: stretch; /* ทำให้ card สูงเท่ากัน */
+}
+.row.d-flex.align-items-stretch {
+  margin-top: 30px; /* ปรับค่าตามที่ต้องการ */
+}
+
+/* ==========================
+   Cards
+   ========================== */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.card-body p,
+.card-body small {
+    font-family: "Paytone One", sans-serif;
+    color: #838081;
+    margin-bottom: 5px !important; /* ลดช่องไฟระหว่างบรรทัด */
+    line-height: 1.2; /* ปรับให้ข้อความกระชับขึ้น */
+}
+
+.card-text {
+  white-space: pre-line;
+}
+
+.card-text p {
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.6;
+}
+
+.card-body p.card-text-article  { 
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 1.6;
+  color: #333; /* เปลี่ยนสีเพื่อให้ดูชัดขึ้น */
+}
+
+.card-body img {
+  max-width: 100px; /* ปรับขนาดภาพโปรไฟล์ */
+  height: auto;
+}
+
+/* ==========================
+   Columns
+   ========================== */
+
+   /* ==========================
+   Responsive Design (630px)
+   ========================== */
+@media (max-width: 630px) {
+  /* ปรับขนาด Container ให้พอดีกับหน้าจอเล็ก */
+  .container, .container-fluid {
+      max-width: 100%;
+      padding: 10px;
+  }
+
+  /* ปรับ Navbar ให้ดูดีขึ้น */
+  .navbar-nav {
+      text-align: center;
+      font-size: 14px;
+  }
+
+  .navbar-toggler {
+      margin-left: auto;
+  }
+
+  /* ปรับขนาดปุ่มต่างๆ */
+  .btn {
+      font-size: 14px;
+      padding: 10px 14px;
+  }
+
+  /* ปรับขนาดฟีเจอร์ให้ไม่ใหญ่เกินไป */
+  .feature-item img {
+      max-width: 80%; /* ปรับให้เล็กลง */
+      height: auto;
+  }
+
+  /* ปรับให้ปุ่มอยู่ตรงกลาง */
+  #newQuoteBtn, #newChallengeBtn, #shareQuoteBtn {
+      display: block;
+      margin: 15px auto;
+      width: 80%;
+      text-align: center;
+  }
+
+  /* ปรับขนาดของ "Now Playing" และปุ่ม */
+  .audio-wrapper {
+      flex-direction: column; /* เรียงแนวตั้งเมื่อหน้าจอเล็ก */
+      gap: 8px;
+  }
+
+  #currentTrackName {
+      font-size: 14px;
+      text-align: center;
+      padding: 5px 0;
+  }
+
+  /* ปรับฟอนต์ให้เล็กลง */
+  h1, h2, h3 {
+      font-size: 24px;
+  }
+
+  p {
+      font-size: 16px;
+  }
+
+  /* ปรับการ์ดบทความให้แสดงเต็มจอ */
+  .card {
+      margin-bottom: 20px;
+  }
+
+  /* ปรับ footer */
+  footer {
+      text-align: center;
+      font-size: 14px;
+  }
+}
+
+
+
+.toon, .non, .deen, .bell, .parn {
+    display: flex;
+    padding-left: 20px;
+}
+
+.col-md-3 img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 1 / 1;
+     /* ทำให้ภาพเป็นสี่เหลี่ยมจตุรัส */
+}
+.col-md-8 {
+  padding-left: 10px; 
+  padding-right: 10px; 
+}
+
+/* ==========================
+   Typography
+   ========================== */
+
+h5 {
+ font-family: "Noto Sans Thai Looped", sans-serif;
+ font-size: 20px;
+ font-weight: normal;
+}
+
+/* ==========================
+   Footer
+   ========================== */
+
+footer {
+    background-color: #FFB3D3;
+    color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+footer p {
+    font-family: "Paytone One", sans-serif;
+    font-size: 16px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+/* ==========================
+   Text Styles
+   ========================== */
+
+.text-body-secondary {
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  font-weight: 500;
+  color: #858484 !important;
+  font-style: normal;
+}
+
+/* ==========================
+   Buttons
+   ========================== */
+
+/* ปรับสีฟอนต์, พื้นหลัง, และมุมของปุ่ม Next Track */
+#nextTrackBtn {
+  font-family: 'Paytone One', sans-serif; /* กำหนดฟอนต์ */
+  color: rgb(254, 254, 254); /* สีฟอนต์ */
+  background-color: #FF4196; /* พื้นหลังของปุ่ม (เช่น สีน้ำเงิน) */
+  border: none; /* เอาขอบออก */
+  border-radius: 50px; /* ปรับมุมให้มน */
+  padding: 10px 20px; /* ระยะห่างภายในปุ่ม */
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 16px; /* ขนาดฟอนต์ */
+  cursor: pointer; /* เปลี่ยนเคอร์เซอร์เมื่อชี้ที่ปุ่ม */
+}
+
+/* เมื่อกดปุ่ม */
+#nextTrackBtn:active {
+  background-color: #EF0074; /* เปลี่ยนสีพื้นหลังเมื่อกด */
+  transform: scale(0.95); /* ย่อขนาดเล็กน้อยเมื่อกด */
+}
+
+
+/* ==========================
+   Logo
+   ========================== */
+
+.logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 8px;
+}
+
+/* ==========================
+   App Intro
+   ========================== */
+
+#app-intro {
+  padding: 50px 0;
+}
+
+.app-title {
+  font-family: 'Paytone One', sans-serif; 
+  /* font-family: "Noto Sans Thai Looped", sans-serif;   */
+  font-size: 65px;
+  font-weight: bold;
+  color: #FF4196; /* ใช้สีเดียวกับธีม */
+}
+
+.app-description {
+    /* font-family: 'Paytone One', sans-serif;  */
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+  color: #555; 
+
+}
+
+.app-intro img {
+  max-width: 35%;  /* ลดขนาดรูปให้เล็กลง */
+  width: auto;
+  height: auto;
+  border-radius: 15px; /* ทำให้ขอบมน */
+  display: block;
+  margin: 0 auto; /* จัดให้อยู่กึ่งกลาง */
+  
+}
+
+.app-intro-section {
+  background-color: #fce4ec ; /* เปลี่ยนสีพื้นหลัง */
+  padding: 50px 0; /* เพิ่มระยะห่างบน-ล่าง */
+}
+
+/* ลดขนาดรูปภาพ */
+.app-img {
+  max-width: 50%;  /* ปรับให้เล็กลง */
+  height: auto;
+  border-radius: 10px;
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
+}
+
+/* ==========================
+   Download Button
+   ========================== */
+
+/* ปรับแต่งปุ่มดาวน์โหลด */
+.btn-custom-download {
+  font-family: 'Paytone One', sans-serif; 
+  background-color: #d597ec !important; /* เปลี่ยนสีปุ่ม */
+  color: white;
+  font-size: 18px;
+  font-weight: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  animation: pulse 2s infinite alternate;
+}
+
+.btn-custom-download:hover {
+  background-color: #c68cdb; /* เปลี่ยนสีเมื่อโฮเวอร์ */
+  color: rgb(71, 70, 70) !important;
+  transform: scale(1.05); /* ขยายปุ่มเล็กน้อย */
+}
+/* ==========================
+   Read more button
+   ========================== */
+.card .btn {
+  background-color: #edefcc !important; /* สีส้ม */
+  border: none;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  margin-top: auto;
+}
+
+.card .btn:hover {
+  background-color: #f0f7a6 !important; /* สีเข้มขึ้น */
+  transform: scale(1.05); /* ขยายเล็กน้อย */
+}
+
+
+@media (max-width: 768px) {
+  .app-intro img {
+      max-width: 50%; /* ปรับขนาดให้ใหญ่ขึ้นในมือถือ */
+  }
+
+  .app-img {
+    width: 200px; 
+    height: auto;
+  }
+  
+  .app-title {
+      text-align: center;
+  }
+
+  .app-description {
+      text-align: center;
+  }
+  /* จัดปุ่ม Download Now ให้อยู่ตรงกลาง */
+  .btn-custom-download {
+      display: block;
+      margin: 20px ; /* จัดให้อยู่ตรงกลาง */
+  }
+
+}
+
+/* ==========================
+   Features
+   ========================== */
+
+#features {
+  padding: 50px 0;
+}
+
+.feature-title {
+  font-family: 'Paytone One', sans-serif; 
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #FF4196; /* สีชมพู สามารถเปลี่ยนได้ */
+}
+
+/* จัดเรียงให้รูปและข้อความสูงเท่ากัน */
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-heading {
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* ปรับขนาดภาพให้เท่ากัน */
+.feature-item img {
+  width: 100%; /* ให้ภาพเต็มคอลัมน์ */
+  height: 200px; /* บังคับให้ภาพมีความสูงเท่ากัน */
+  object-fit: contain; /* ป้องกันการตัดภาพ */
+  display: block;
+  margin: 0 auto;
+}
+
+/* จัดให้ข้อความอยู่ด้านล่างภาพเสมอ */
+.feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  height: 100%;
+}
+
+.feature-text {
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  text-align: center;
+  padding-bottom: 10px;
+  color: #555;
+}
+
+.feature-text h5 {
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.feature-text p {
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.feature-list {
+  font-family: "Noto Sans Thai Looped", sans-serif; /* หรือฟอนต์ที่ต้องการ */
+  font-size: 20px; /* ปรับขนาดตัวอักษร */
+  color: #555; /* ปรับสีตัวอักษร */
+  list-style-type: none; /* เอาจุดสัญลักษณ์ออก */
+  padding-left: 0; /* เอาระยะห่างด้านซ้ายออก */
+}
+
+.feature-list li {
+  margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างรายการ */
+}
+.feature-img {
+  max-width: 100%;  /* ลดขนาดรูปเหลือ 60% ของคอลัมน์ */
+  width: auto;
+  height: auto;
+  border-radius: 15px; /* ทำให้ขอบมน */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-img:hover {
+  transform: translateY(-10px);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+
+
+@media (max-width: 768px) {
+
+  .feature-heading {
+    font-family: "Noto Sans Thai Looped", sans-serif;
+      font-size: 22px;
+      text-align: center;
+  }
+
+  .feature-text {
+    flex-grow: 1; /* ทำให้ข้อความขยายเต็มพื้นที่ที่เหลือ */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+    padding-bottom: 10px; /* เพิ่มระยะห่างด้านล่าง */
+    
+}
+
+  .feature-img {
+    max-width: 60%;  /* ลดขนาดรูปเหลือ 60% ของคอลัมน์ */
+    width: auto;
+    height: auto;
+    border-radius: 15px; /* ทำให้ขอบมน */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    max-height: 200px; /* กำหนดขนาดรูปให้เท่ากัน */
+    object-fit: contain;
+    max-width: 50%; /* ลดขนาดรูปให้เล็กลงในมือถือ */
+    display: block;
+    margin: 0 auto;
+}
+
+  .feature-item {
+      text-align: center;
+  }
+  .feature-list li {
+    margin-bottom: 10px; /* เพิ่มระยะห่างระหว่างรายการ */
+    text-align: center;
+  }
+  
+}
+/* ==========================
+   Hero Section
+   ========================== */
+
+#hero-section {
+  width: 100%;
+  height: 100vh; /* ทำให้สูงเต็มหน้าจอ */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff7f5; /* สีพื้นหลังอ่อน */
+  animation: gradientMove 5s infinite alternate;
+}
+
+@keyframes gradientMove {
+    0% { background-position: left; }
+    100% { background-position: right; }
+}
+
+.hero-container {
+  max-width: 80%; /* ปรับให้รูปมีขนาด 60% ของหน้าจอ */
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px; /* ทำให้ขอบมน */
+  animation: float 2s ease-in-out infinite alternate;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* เพิ่มเงาให้ดูสวยขึ้น */
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-25px); }
+}
+
+
+
+@media (max-width: 768px) {
+  .hero-container {
+      max-width: 90%;
+  }
+
+  .hero-image {
+      border-radius: 20px;
+  }
+}
+
+/* ==========================
+   Lists
+   ========================== */
+
+ul {
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  font-size: 18px;
+}
+
+.row.align-items-stretch {
+  display: flex;
+}
+
+/* ทำให้ขนาดของกล่องเท่ากัน */
+.row .col-md-4 {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ==========================
+   Member Section
+   ========================== */
+
+.member-title{
+  font-family: 'Paytone One', sans-serif; 
+  font-size: 42px;
+  font-weight: bold;
+  color: #FF4196; /* ใช้สีเดียวกับธีม */
+  margin: 87;
+  margin-top: 50px;
+}
+
+.card-title {
+  font-family: 'Paytone One', sans-serif; 
+  color: #555; /* ปรับสี */
+  font-size: 20px; /* ปรับขนาดฟอนต์ */
+  font-weight: bold; /* ทำให้ตัวหนา */
+}
+h5.card-skills {
+  font-family: 'Paytone One', sans-serif; 
+  font-weight: bold; 
+  color: #FF4196; /* Custom color, change as needed */
+}
+
+/* ==========================
+   Headings
+   ========================== */
+
+h2 {
+  font-family: 'Paytone One', sans-serif; 
+  font-size: 28px; /* ปรับขนาด */
+  font-weight: 700; /* ปรับความหนา */
+  color: #FF4196; /* ปรับสี */
+}
+
+/* ==========================
+   Paragraphs
+   ========================== */
+
+p {
+  font-family: 'Paytone One', sans-serif; 
+  font-size: 18px; /* ปรับขนาด */
+}
+
+.challenge-text {
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  font-size: 18px; /* ปรับขนาด */
+  font-style: italic; /* เอียงตัวอักษร */
+  color: #555; /* ปรับสี */
+
+}
+
+/* ==========================
+   Audio Player
+   ========================== */
+
+.audio-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#currentTrackName {
+  margin: 0;
+  padding-left: 10px; /* ปรับระยะห่างซ้าย */
+  align-self: center; /* จัดให้ตรงกลาง */
+  font-size: 13px; /* ปรับขนาดให้เหมาะสม */
+}
+
+#playPauseBtn, #nextTrackBtn {
+  background-color: #FF6A66;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  animation: pulse 2s infinite alternate;
+}
+
+#playPauseBtn:hover, #nextTrackBtn:hover {
+  background-color: #E05850;
+  color: rgb(71, 70, 70) !important;
+  transform: scale(1.05); /* ขยายปุ่มเล็กน้อย */
+}
+
+
+
+#currentTrackName {
+  font-size: 15px;
+  font-weight: normal;
+  color: #fafafa;
+}
+
+
+/* ==========================
+   Reviews
+   ========================== */
+
+.review-card {
+  
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 10px 0;
+}
+#review-reactions p {
+  font-family: "Noto Sans Thai Looped", sans-serif; /* เปลี่ยนฟอนต์ */
+  font-size: 18px; /* ปรับขนาดตัวอักษร */
+  font-weight: bold; /* ทำให้ตัวหนา */
+  color: #4e81c4; /* เปลี่ยนสีข้อความ */
+  text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+  margin-bottom: 15px; /* เพิ่มระยะห่างด้านล่าง */
+}
+.review-card p {
+  font-family: "Noto Sans Thai Looped", sans-serif; /* เปลี่ยนฟอนต์ */
+  font-size: 18px; /* ปรับขนาดตัวอักษร */
+  font-weight: normal; /* ปรับความหนาของฟอนต์ */
+  color: #333; /* เปลี่ยนสีข้อความ */
+  text-align: center; /* จัดให้อยู่ตรงกลาง (ถ้าต้องการ) */
+}
+
+
+/* ==========================
+   Quote Section
+   ========================== */
+
+#quote-section {
+  background-color: #fff7f5;
+  padding: 40px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#quoteText {
+  font-size: 24px;
+  font-weight: bold;
+  color: #FF4196;
+  font-family: "Noto Sans Thai Looped", sans-serif;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#challengeImage {
+  background-color: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#challengeImage:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================
+   Blog Section
+   ========================== */
+
+   #blog {
+    background-color: #f9fae0; /* เปลี่ยนพื้นหลังให้อ่อนลง */
+    padding: 60px 0;
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  #blog h2 {
+    font-size: 42px;
+    font-weight: bold;
+    color: #FF4196;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  /* ปรับแต่งการ์ดบทความ */
+  .card {
+    display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  /* เมื่อโฮเวอร์ที่การ์ด จะเด้งขึ้น + เพิ่มเงา */
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* ปรับแต่งปุ่ม อ่านเพิ่มเติม */
+.card .btn {
+  background-color: #e69d37;
+  border: none;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+  margin-top: auto;
+}
+  
+  .card .btn:hover {
+    background-color: #E05850;
+    transform: scale(1.05);
+  }
+  
+  .card-title-self {
+    font-family: "Noto Sans Thai Looped", sans-serif;
+    color: #000000; /* ปรับสี */
+    font-size: 20px; /* ปรับขนาดฟอนต์ */
+    font-weight: bold; /* ทำให้ตัวหนา */
+  }
+  /* ปรับแต่งรูปภาพของ Blog */
+  .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px 12px 0 0;
+  }
+  #quote-and-challenge {
+    background: #fcf1ff ; /* สีพื้นหลัง */
+    padding: 40px 20px;
+    border-radius: 15px; /* ทำให้ขอบมน */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  #newChallengeBtn {
+    display: block;
+    margin: 20px auto; /* จัดปุ่มให้อยู่ตรงกลางแนวนอน */
+    text-align: center;
+  }
+  #newQuoteBtn {
+    display: block; /* ทำให้ปุ่มเป็น block element */
+    margin: 20px auto; /* จัดกึ่งกลางแนวนอน */
+    text-align: center;
+}
+
+
+    #quoteText, #challengeImage {
+      transition: opacity 0.5s ease-in-out;
+  }
+
+  .fade-out {
+      opacity: 0;
+  }
+
+  .fade-in {
+      opacity: 1;
+  }
+
+  .quote-container, .challenge-container {
+    padding: 20px;
+    
+  }
+/* ปุ่มแชร์แบบเรียบง่าย */
+.btn-share {
+    font-family: 'Paytone One', sans-serif;
+    background-color: #f69aa8; /* สีพื้นหลังชมพูสด */
+    color: white;
+    font-size: 18px;
+    padding: 10px 16px;
+    border-radius: 8px; /* ขอบมนเล็กน้อย */
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    animation: pulse 2s infinite alternate;}
+/* เอฟเฟกต์เมื่อโฮเวอร์ */
+.btn-share:hover {
+  transform: scale(1.1); /* ขยายขึ้น */
+  color: rgb(71, 70, 70) !important;
+  box-shadow: 0px 8px 20px rgba(255, 121, 198, 0.4);
+  background: linear-gradient(to right, #ff6584, #ff2e63); /* เปลี่ยนสีเมื่อโฮเวอร์ */
+}
+
+
+/* เอฟเฟกต์เวลากด */
+.btn-share:active {
+  transform: scale(0.95); /* ย่อเล็กลงเมื่อกด */
+}
+
+/* ==========================
+   FAQs
+   ========================== */
+
+   .accordion-button {
+    font-family: "Noto Sans Thai Looped", sans-serif; /* เปลี่ยนฟอนต์ */
+    font-size: 18px; /* ปรับขนาดตัวอักษร */
+    font-weight: bold; /* ทำให้ตัวหนา */
+    color: #FF4196; /* เปลี่ยนสีข้อความ */
+    background-color: #fce4ec; /* เปลี่ยนสีพื้นหลัง */
+}
+
+.accordion-body {
+    font-family: "Noto Sans Thai Looped", sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    color: #555;
+    line-height: 1.6;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: #FFB3D3 !important; /* เปลี่ยนพื้นหลังเป็นสีชมพู */
+  color: #ffffff !important; /* เปลี่ยนสีตัวอักษรเป็นสีขาว */
+  border-color: #FFB3D3 !important; /* เปลี่ยนสีขอบให้ตรงกัน */
+}
+
+.accordion-button {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.download-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 20px; /* เปลี่ยนจาก right เป็น left */
+  background: #ffc2c2;
+  color: white;
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 380px;
+  min-height: 120px;
+  transition: all 0.3s ease-in-out;
+  flex-wrap: wrap;
+}
+.popup-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.popup-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.popup-title {
+  font-family: "Noto Sans Thai Looped", sans-serif; /* เปลี่ยนฟอนต์ */
+  font-size: 17px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.popup-text {
+  font-family: "Noto Sans Thai Looped", sans-serif; /* เปลี่ยนฟอนต์ */
+  font-size: 14px;
+  color: white;
+}
+
+/* ปรับปุ่มปิดให้ไปอยู่มุมซ้ายบนแทน */
+.download-popup button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px; /* สามารถคงไว้ที่ขวา หรือเปลี่ยนเป็น left: 10px; ถ้าอยากให้ไปทางซ้าย */
+}
+
+/* ให้ปุ่มดาวน์โหลดอยู่ล่างสุดเหมือนเดิม */
+.btn-custom-download {
+  background-color: rgb(75, 58, 58);
+  color: #ffffff;
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: normal;
+  align-self: flex-end;
+  margin-top: auto;
+}
+
+.btn-custom-download:hover {
+  background-color: #f8c0db;
+}
+#scrollTopBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: none;
+  color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  display: none;
+  transition: all 0.3s;
+}
+
+#scrollTopBtn:hover {
+  background: #FF4196;
+  transform: scale(1.1);
+}
+.snowflake {
+  position: fixed;
+  top: -10px;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  to {
+      transform: translateY(100vh);
+  }
+}
+#loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: linear-gradient(to right, #ff69b4, #ff1493);
+  z-index: 9999;
+  transition: width 0.3s ease-in-out;
+}
+
+
+
+
