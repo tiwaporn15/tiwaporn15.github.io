@@ -169,3 +169,25 @@ window.addEventListener("scroll", function() {
 scrollTopBtn.addEventListener("click", function() {
     window.scrollTo({ top: 0, behavior: "smooth" });
 });
+function createSnowflake() {
+    const snowflake = document.createElement("div");
+    snowflake.classList.add("snowflake");
+    snowflake.innerHTML = "❄️";
+    snowflake.style.color = "#ff69b4"; // เปลี่ยนเป็นสีชมพู
+    document.body.appendChild(snowflake);
+
+    const size = Math.random() * 20 + 10 + "px";
+    const left = Math.random() * 100 + "vw";
+    const duration = Math.random() * 3 + 2 + "s";
+
+    snowflake.style.fontSize = size;
+    snowflake.style.left = left;
+    snowflake.style.animationDuration = duration;
+
+    setTimeout(() => {
+        snowflake.remove();
+    }, 5000);
+}
+
+setInterval(createSnowflake, 300);
+
