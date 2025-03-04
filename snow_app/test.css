@@ -1181,15 +1181,17 @@ p {
   transform: scale(1.1);
 }
 .snowflake {
-  position: fixed;
-  top: -10px;
-  opacity: 0.8;
+    position: fixed;
+    top: -10px;
+    color: white;
+    opacity: 0.8;
+    animation: fall linear infinite;
 }
 
 @keyframes fall {
-  to {
-      transform: translateY(100vh);
-  }
+    to {
+        transform: translateY(100vh);
+    }
 }
 #loading-bar {
   position: fixed;
