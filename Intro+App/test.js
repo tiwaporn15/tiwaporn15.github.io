@@ -41,7 +41,7 @@ playPauseBtn.addEventListener("click", function() {
     }
 });
 
-// ฟังก์ชันเปลี่ยนเพลง (Next Track)
+// ฟังก์ชันเปลี่ยนเพลง (Next Track)A
 nextTrackBtn.addEventListener("click", function() {
     currentTrackIndex = (currentTrackIndex + 1) % tracks.length;
     audioSource.src = tracks[currentTrackIndex];
@@ -172,8 +172,7 @@ scrollTopBtn.addEventListener("click", function() {
 function createSnowflake() {
     const snowflake = document.createElement("div");
     snowflake.classList.add("snowflake");
-    snowflake.innerHTML = "❄️";
-    snowflake.style.color = "#ff69b4"; // เปลี่ยนเป็นสีชมพู
+    snowflake.innerHTML = "🐇";
     document.body.appendChild(snowflake);
 
     const size = Math.random() * 20 + 10 + "px";
@@ -190,4 +189,3 @@ function createSnowflake() {
 }
 
 setInterval(createSnowflake, 300);
-
