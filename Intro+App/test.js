@@ -189,3 +189,8 @@ function createSnowflake() {
 }
 
 setInterval(createSnowflake, 300);
+
+/* script.js */
+function openYouTube() {
+    window.open("https://youtu.be/6-RKdjLQBik?si=VN3yGFWy33lMkus9", "_blank");
+}
